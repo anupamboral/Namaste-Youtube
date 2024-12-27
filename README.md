@@ -2,6 +2,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## our decided components
+
+- Head
+- Body
+  - SideBar
+    - MenuItems
+  - Main Container
+    - ButtonList
+    - VideoContainer
+      - VideoCard
+
 ## Available Scripts
 
 In the project directory, you can run:

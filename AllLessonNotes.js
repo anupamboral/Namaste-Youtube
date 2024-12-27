@@ -38,4 +38,12 @@ This function is fired when the final values for any of the metrics have finishe
 @tailwind utilities;*/
 //* And as we are using create react app so there is no need to add the post css,because it is already installed by our create react app.
 
-//*
+/* our decided  components
+ * Head
+ * Body
+ *   SideBar
+ *     MenuItems
+ * Main Container
+ *   ButtonList
+ *   VideoContainer
+ *      VideoCard*/
