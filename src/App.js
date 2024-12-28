@@ -1,7 +1,11 @@
+import Body from "./components/Body";
+import Head from "./components/Head";
+
 function App() {
   return (
-    <div className="App bg-slate-950">
-      <h1 className="text-red-700 text-6xl mt-10 text-center">hi</h1>
+    <div className="App bg-black">
+      <Head />
+      <Body />
     </div>
   );
 }
