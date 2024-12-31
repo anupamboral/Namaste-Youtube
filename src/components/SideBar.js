@@ -1,6 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const SideBar = () => {
+  const isOpen = useSelector((store) => store.app.isNavOpen);
+  //* earlier return
+  if (!isOpen) return null; //* isfalse= false return null to collapse the sidebar.
+
   return (
     <div className="sideBar pr-4 w-56 border-r-[1px] scroll-smooth">
       <h1 className="home p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
