@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const isOpen = useSelector((store) => store.app.isNavOpen);
@@ -8,25 +9,27 @@ const SideBar = () => {
 
   return (
     <div className="sideBar pr-4 w-56 border-r-[1px] ">
-      <h1 className="home p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          focusable="false"
-          aria-hidden="true"
-          className="mr-2"
-        >
-          <path
-            clipRule="evenodd"
-            d="M22.146 11.146a.5.5 0 01-.353.854H20v7.5a1.5 1.5 0 01-1.5 1.5H14v-8h-4v8H5.5A1.5 1.5 0 014 19.5V12H2.207a.5.5 0 01-.353-.854L12 1l10.146 10.146Z"
-            fillRule="evenodd"
-          ></path>
-        </svg>
-        Home
-      </h1>
+      <Link to={"/"}>
+        <h1 className="home p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            focusable="false"
+            aria-hidden="true"
+            className="mr-2"
+          >
+            <path
+              clipRule="evenodd"
+              d="M22.146 11.146a.5.5 0 01-.353.854H20v7.5a1.5 1.5 0 01-1.5 1.5H14v-8h-4v8H5.5A1.5 1.5 0 014 19.5V12H2.207a.5.5 0 01-.353-.854L12 1l10.146 10.146Z"
+              fillRule="evenodd"
+            ></path>
+          </svg>
+          Home
+        </h1>
+      </Link>
       <h1 className=" p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
