@@ -21,7 +21,7 @@ const ChannelInfo = ({ channelId }) => {
   const subscriberCount = channelData[0].statistics.subscriberCount;
   // console.log(channelImage);
   return (
-    <div className=" mt-4 ml-20 flex ">
+    <div className=" mt-4 ml-2 lg:ml-20 flex ">
       <img
         className="rounded-3xl w-11"
         alt="channel-image"

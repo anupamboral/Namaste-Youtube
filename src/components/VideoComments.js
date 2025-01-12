@@ -4,7 +4,7 @@ import { CLSThresholds } from "web-vitals";
 import Comment from "./Comment";
 
 const VideoComments = ({ videoId, channelId }) => {
-  console.log(videoId);
+  // console.log(videoId);
   const [comments, setComments] = useState([]);
   useEffect(() => {
     const commentLoader = async () => {
@@ -20,10 +20,7 @@ const VideoComments = ({ videoId, channelId }) => {
   return (
     <div className=" w-full p-4 m-2">
       {comments.map((comment) => (
-        <Comment
-          key={comment.snippet.topLevelComment.snippet.videoId}
-          commentData={comment}
-        />
+        <Comment key={comment.id} commentData={comment} />
       ))}
     </div>
   );

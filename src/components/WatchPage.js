@@ -32,17 +32,18 @@ const WatchPage = () => {
   return (
     <div>
       <iframe
-        className="m-5 ml-20 w-[900px] h-[450px] shadow-2xl shadow-slate-500"
+        className="m-2 lg:ml-20 lg:w-[900px] lg:h-[450px] w-96 h-72  shadow-2xl shadow-slate-500"
         src={"https://www.youtube.com/embed/" + videoId}
         title="YouTube video player"
-        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
-      <h2 className=" ml-20 font-bold text-xl">{videoInfo[0].snippet.title}</h2>
+      <h2 className=" lg:ml-20 ml-2 font-bold text-xl w-[900px]">
+        {videoInfo[0].snippet.title}
+      </h2>
       <div className="flex">
-        <div className="flex flex-col">
+        <div className="flex flex-col ">
           <ChannelInfo channelId={videoInfo[0].snippet.channelId} />
         </div>
         <button className="flex bg-slate-700 ml-10 rounded-lg mt-4 p-2 h-12 w-36 hover:bg-slate-800 font-bold">
@@ -59,7 +60,7 @@ const WatchPage = () => {
           ></img>
         </button>
       </div>
-      <details className="m-5 ml-20 w-[900px] p-4  shadow-2xl bg-slate-900">
+      <details className="m-5 lg:ml-20 w-96  lg:w-[900px] p-4  shadow-2xl bg-slate-900">
         <summary>Description</summary>
         {videoInfo[0].snippet.description}
       </details>

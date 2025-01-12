@@ -1,11 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
-import { Link } from "react-router-dom";
+import { Link, Links } from "react-router-dom";
+import { API_KEY, SEARCH_SUGGESTIONS_API } from "../utils/config";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState(""); //* for keep track what the user is typing
   console.log(searchQuery);
+  const [suggestions, setSuggestions] = useState([]); //* suggestion data coming from api
+
+  //*for hiding onBlur(focus out) and displaying suggestion on focus
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  useEffect(() => {
+    //*making apn api call on each key press
+    //* but if the difference between two api more than 200 milliseconds
+    //* decline the api call(debouncing)
+
+    const timer = setTimeout(
+      () => (searchQuery.length > 0 ? getSearchQuery() : null),
+      200
+    ); //* setting a timer of 200ms for making the api call if searchQuery is not empty.
+
+    //* making suggestions empty when there is no user input
+    if (searchQuery.length === 0) setSuggestions([]);
+
+    //* To decline the api call will use the return function which used as a cleanup function, and this clean up return function will be only called when the current component will be unmounted/trashed.
+    //* suppose user is trying to type "iphone", he pressed first i
+    //* so our useEffect will be called and the timer of 200ms will start and after 200ms it will male the make api call.
+    //* but before 200ms if the user press "p", our state variable will update and immediately it will trigger the reconciliation process, so this process will unmount/trashed the current component and update it a new refreshed component.
+    //* will unmounting our return cleanup function will be called and there we will clear our timeout,
+    //*  then our new component will be mounted and it will again start a new timer of 200s.
+    return () => clearTimeout(timer); //* this clean up return function will be only called when the current component will be unmounted/trashed.
+  }, [searchQuery]);
+  const getSearchQuery = async () => {
+    const data = await fetch(
+      SEARCH_SUGGESTIONS_API + searchQuery + "&key=" + API_KEY
+    );
+    const json = await data.json();
+    console.log(json);
+    setSuggestions(json.items);
+  };
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu()); //* action we created inside appSlice.js to collapse and expand the sidebar.
@@ -33,17 +67,41 @@ const Head = () => {
           />
         </Link>
       </div>
-      <div className=" grid-cols-10 grid-flow-col-dense">
-        <input
-          className="border-solid pl-2 pt-2 pb-3 mt-3 text-xl shadow-lg border-black w-4/5 h-10 rounded-l-full mr-1"
-          type="text"
-          placeholder="Search.."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <button className=" h-10 mt-1 shadow-white shadow-md border-black border-2 rounded-r-full text-white p-2 px-4  hover:shadow-gray-200">
-          🔍
-        </button>
+      <div className=" grid-cols-10 ">
+        <div>
+          <input
+            className="border-solid pl-2 pt-2 pb-3 mt-3 text-xl shadow-lg border-black w-4/5 h-10 rounded-l-full mr-1"
+            type="text"
+            placeholder="Search.."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => setShowSuggestions(false)}
+          />
+          <button className=" h-10 mt-1 shadow-white shadow-md border-black border-2 rounded-r-full text-white p-2 px-4  hover:shadow-gray-200">
+            🔍
+          </button>
+        </div>
+        {showSuggestions && (
+          <div className="relative">
+            <ul className="absolute  z-10 bg-slate-900 rounded">
+              {suggestions.map((suggestion) => (
+                <Link
+                  key={suggestion.videoId}
+                  to={
+                    "/watch?v=" + suggestion.id.videoId
+                      ? suggestion.id.videoId
+                      : suggestion.id.channelId
+                  }
+                >
+                  <li className="border-solid pl-3 p-3  m-1 text-l shadow-lg border-black w-[30rem] bg-black rounded-lg mr-1 hover:bg-slate-800 text-white">
+                    🔍 {suggestion.snippet.title}
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       <div className=" grid-cols-1">
         <img
