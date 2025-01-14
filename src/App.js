@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import MainContainer from "./components/MainContainer";
 import WatchPage from "./components/WatchPage";
+import ResultsPage from "./components/ResultsPage";
 //*2.14
 const appRouter = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const appRouter = createBrowserRouter([
         path: "/watch",
         element: <WatchPage />,
       },
+      {
+        path: "/results",
+        element: <ResultsPage />,
+      },
     ],
   },
 ]);
@@ -30,12 +35,10 @@ function App() {
   return (
     <div className="App bg-black">
       <Provider store={store}>
-        <BrowserRouter>
-          <Head />
-        </BrowserRouter>
+        {/**even after wrapping the Head component inside the <BrowserRouter/> component , still routing was not working thats why put the head inside the body component to make it work */}
 
         <RouterProvider router={appRouter} />
-        {/**see line 108 of notes to see why we used router Provider here instead of Body component and as the head component is not inside rthe rouer provider that's why to provide the router we wrapped it inside the browserRouter component*/}
+        {/**see line 108 of notes to see why we used router Provider here instead of Body component and as the head component is not inside rthe router provider that's why to provide the router we wrapped it inside the browserRouter component*/}
       </Provider>
     </div>
   );
