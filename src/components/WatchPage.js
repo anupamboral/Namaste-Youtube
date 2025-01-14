@@ -39,10 +39,10 @@ const WatchPage = () => {
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
-      <h2 className=" lg:ml-20 ml-2 font-bold text-xl w-[900px]">
+      <h2 className=" lg:ml-20 ml-2 font-bold text-xl lg:w-[900px] w-96">
         {videoInfo[0].snippet.title}
       </h2>
-      <div className="flex">
+      <div className="flex lg:w-[900px] w-96">
         <div className="flex flex-col ">
           <ChannelInfo channelId={videoInfo[0].snippet.channelId} />
         </div>
@@ -67,7 +67,7 @@ const WatchPage = () => {
       <h3 className="m-5 ml-20 ">
         {videoInfo[0].statistics.commentCount} Comments
       </h3>
-      <div>
+      <div className="lg:w-[900px] w-96">
         <VideoComments
           videoId={videoId}
           channelId={videoInfo[0].snippet.channelId}

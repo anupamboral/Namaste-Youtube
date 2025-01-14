@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 const list = [
   "All",
   "News",
@@ -54,10 +55,14 @@ const ButtonLists = () => {
       </button>
       <div
         ref={scrollRef}
-        className="lg:max-w-6xl bg-black overflow-x-hidden flex mx-2 flex-shrink  md:max-w-xl max-w-48"
+        className="lg:max-w-6xl bg-black overflow-x-hidden flex mx-2 flex-shrink  md:max-w-xl max-w-60"
       >
         {list.map((btnName, index) => {
-          return <Button key={index} name={btnName} />;
+          return (
+            <Link to={"/results?search_query=" + btnName}>
+              <Button key={index} name={btnName} />
+            </Link>
+          );
         })}
       </div>
       <button

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { API_KEY, COMMENT_API } from "../utils/config";
-import { CLSThresholds } from "web-vitals";
 import Comment from "./Comment";
 
 const VideoComments = ({ videoId, channelId }) => {

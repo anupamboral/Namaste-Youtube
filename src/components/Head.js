@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
-import { Link, Links } from "react-router-dom";
-import { API_KEY, SEARCH_SUGGESTIONS_API } from "../utils/config";
+import { Link } from "react-router-dom";
+import {
+  AUTO_COMPLETE_SEARCH_API,
+  AUTO_COMPLETE_SEARCH_API_OPTIONS,
+  AUTO_COMPLETE_SEARCH_API_PARAMETERS,
+} from "../utils/config";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState(""); //* for keep track what the user is typing
@@ -18,7 +22,7 @@ const Head = () => {
 
     const timer = setTimeout(
       () => (searchQuery.length > 0 ? getSearchQuery() : null),
-      200
+      2000
     ); //* setting a timer of 200ms for making the api call if searchQuery is not empty.
 
     //* making suggestions empty when there is no user input
@@ -33,12 +37,20 @@ const Head = () => {
     return () => clearTimeout(timer); //* this clean up return function will be only called when the current component will be unmounted/trashed.
   }, [searchQuery]);
   const getSearchQuery = async () => {
-    const data = await fetch(
-      SEARCH_SUGGESTIONS_API + searchQuery + "&key=" + API_KEY
-    );
+    // const data = await fetch(
+    //   SEARCH_SUGGESTIONS_API + searchQuery + "&key=" + API_KEY
+    // );
+    // const json = await data.json();
+    // console.log(json);
+    // setSuggestions(json.items);
+    const url =
+      AUTO_COMPLETE_SEARCH_API +
+      searchQuery +
+      AUTO_COMPLETE_SEARCH_API_PARAMETERS;
+    const data = await fetch(url, AUTO_COMPLETE_SEARCH_API_OPTIONS);
     const json = await data.json();
-    console.log(json);
-    setSuggestions(json.items);
+    console.log(json.suggestions);
+    setSuggestions(json.suggestions);
   };
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
@@ -59,7 +71,7 @@ const Head = () => {
         >
           <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
         </svg>
-        <Link to={"/"}>
+        <Link to="/">
           <img
             className="h-16 ml-[-1rem] mr-1 w-40 cursor-pointer hover:shadow-white  rounded-3xl transition-all "
             alt="logo"
@@ -75,27 +87,25 @@ const Head = () => {
             placeholder="Search.."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            onFocus={() => setShowSuggestions(true)}
+            onFocus={() => setShowSuggestions(false)} //*make it true when api starts working
             onBlur={() => setShowSuggestions(false)}
           />
-          <button className=" h-10 mt-1 shadow-white shadow-md border-black border-2 rounded-r-full text-white p-2 px-4  hover:shadow-gray-200">
-            🔍
-          </button>
+          <Link to={"/results?search_query=" + searchQuery}>
+            <button className=" h-10 mt-1 shadow-white shadow-md border-black border-2 rounded-r-full text-white p-2 px-4  hover:shadow-gray-200">
+              🔍
+            </button>
+          </Link>
         </div>
         {showSuggestions && (
           <div className="relative">
             <ul className="absolute  z-10 bg-slate-900 rounded">
-              {suggestions.map((suggestion) => (
+              {suggestions.map((suggestion, index) => (
                 <Link
-                  key={suggestion.videoId}
-                  to={
-                    "/watch?v=" + suggestion.id.videoId
-                      ? suggestion.id.videoId
-                      : suggestion.id.channelId
-                  }
+                  key={index}
+                  to={"/results?search_query=" + suggestion.value}
                 >
                   <li className="border-solid pl-3 p-3  m-1 text-l shadow-lg border-black w-[30rem] bg-black rounded-lg mr-1 hover:bg-slate-800 text-white">
-                    🔍 {suggestion.snippet.title}
+                    🔍 {suggestion.value}
                   </li>
                 </Link>
               ))}

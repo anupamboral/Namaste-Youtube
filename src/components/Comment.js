@@ -1,11 +1,11 @@
 import React from "react";
 
 const Comment = ({ commentData }) => {
-  console.log(commentData.snippet.topLevelComment.snippet);
+  // console.log(commentData.snippet.topLevelComment.snippet);
   return (
-    <div className="flex m-4 py-6 mx-10 bg-slate-900 w-[900px]">
+    <div className="flex m-4 py-6 lg:mx-10 mx-2 bg-slate-900 lg:w-[900px]">
       <img
-        className="ml-20 rounded-3xl w-10 h-10"
+        className="lg:ml-20 ml-2 rounded-3xl w-10 h-10"
         alt="commenter-Image"
         src={commentData.snippet.topLevelComment.snippet.authorProfileImageUrl}
       />
@@ -14,7 +14,7 @@ const Comment = ({ commentData }) => {
           {commentData.snippet.topLevelComment.snippet.authorDisplayName}
         </li>
         <li>{commentData.snippet.topLevelComment.snippet.textDisplay}</li>
-        <button className="flex bg-slate-700 ml-10 rounded-lg mt-4 p-2 h-10 w-16 hover:bg-slate-800 font-bold">
+        <button className="flex bg-slate-700 lg:ml-10 ml-5 rounded-lg mt-4 p-2 h-10 w-16 hover:bg-slate-800 font-bold">
           <img
             className=" w-4 h-4 mr-1"
             alt="like"
