@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
+<<<<<<< HEAD
 import { Link, useSearchParams } from "react-router-dom";
 import { API_KEY, SEARCH_SUGGESTIONS_API } from "../utils/config";
 import SearchResult from "./SearchResult";
 import ChannelSearchResult from "./ChannelsSearchResult";
+=======
+import { useSearchParams } from "react-router-dom";
+import { API_KEY, SEARCH_SUGGESTIONS_API } from "../utils/config";
+import SearchResult from "./SearchResult";
+>>>>>>> bd1fdf985bea3ed11d494f70db79bc74ae94cc93
 
 const ResultsPage = () => {
   const [params] = useSearchParams();
@@ -20,6 +26,7 @@ const ResultsPage = () => {
   useEffect(() => {
     getSearchResults();
   }, []);
+<<<<<<< HEAD
   if (searchResults.length === 0) return null;
 
   const filteredChannels = searchResults.filter(
@@ -37,6 +44,12 @@ const ResultsPage = () => {
         <Link to={"/watch?v=" + video.id.videoId}>
           <SearchResult key={video.id.videoId} info={video} />
         </Link>
+=======
+  return (
+    <div>
+      {searchResults.map((searchResult) => (
+        <SearchResult info={searchResult} />
+>>>>>>> bd1fdf985bea3ed11d494f70db79bc74ae94cc93
       ))}
     </div>
   );

@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { API_KEY, CHANNEL_DETAILS_API } from "../utils/config";
 
 const MiniChannelInfo = ({ channelId }) => {
+<<<<<<< HEAD
   // console.log(channelId);
+=======
+  console.log(channelId);
+>>>>>>> bd1fdf985bea3ed11d494f70db79bc74ae94cc93
   const [channelData, setChannelData] = useState([]);
   useEffect(() => {
     const channelInfoLoader = async () => {
@@ -10,7 +14,11 @@ const MiniChannelInfo = ({ channelId }) => {
         CHANNEL_DETAILS_API + channelId + "&key=" + API_KEY
       );
       const channelJson = await channelData.json();
+<<<<<<< HEAD
       // console.log(channelJson);
+=======
+      console.log(channelJson);
+>>>>>>> bd1fdf985bea3ed11d494f70db79bc74ae94cc93
       setChannelData(channelJson.items);
     };
     channelInfoLoader();

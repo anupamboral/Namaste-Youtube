@@ -7,7 +7,11 @@ import Head from "./Head";
 const Body = () => {
   return (
     <div>
+<<<<<<< HEAD
       <div className="relative">
+=======
+      <div>
+>>>>>>> bd1fdf985bea3ed11d494f70db79bc74ae94cc93
         <Head />
       </div>
       <div className=" body flex text-white bg- bg-black overflow-hidden">
