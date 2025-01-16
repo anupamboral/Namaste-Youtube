@@ -1,4 +1,4 @@
-export const API_KEY = "AIzaSyDluRkSg9Q_D3LMhrRGF-W1YjmZaXrgYZw"; //* previous - - AIzaSyDluRkSg9Q_D3LMhrRGF-W1YjmZaXrgYZw
+export const API_KEY = "AIzaSyABDEgLcdCwAgnJj6gRhm-2HP6AdmQooXs"; //* previous - - AIzaSyDluRkSg9Q_D3LMhrRGF-W1YjmZaXrgYZw
 
 export const YOUTUBE_VIDEOS_LIST_API =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
