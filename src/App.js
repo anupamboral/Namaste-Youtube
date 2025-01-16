@@ -1,15 +1,12 @@
 import { Provider } from "react-redux";
 import Body from "./components/Body";
-import Head from "./components/Head";
+// import Head from "./components/Head";//*even after wrapping the Head component inside the <BrowserRouter/> component , still routing was not working thats why put the head inside the body component to make it work
 import store from "./utils/store";
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainContainer from "./components/MainContainer";
 import WatchPage from "./components/WatchPage";
 import ResultsPage from "./components/ResultsPage";
+import Channel from "./components/Channel";
 //*2.14
 const appRouter = createBrowserRouter([
   {
@@ -27,6 +24,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/results",
         element: <ResultsPage />,
+      },
+      {
+        path: "/channel/:channelId",
+        element: <Channel />,
       },
     ],
   },

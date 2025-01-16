@@ -57,7 +57,7 @@ const Head = () => {
     dispatch(toggleMenu()); //* action we created inside appSlice.js to collapse and expand the sidebar.
   };
   return (
-    <div className="Head  p-2 shadow-lg grid grid-flow-col bg-black ">
+    <div className="Head   p-2 shadow-lg grid grid-flow-col bg-black ">
       <div className=" flex grid-cols-1">
         <svg
           onClick={() => toggleMenuHandler()}

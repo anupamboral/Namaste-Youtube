@@ -1,4 +1,4 @@
-export const API_KEY = "AIzaSyABDEgLcdCwAgnJj6gRhm-2HP6AdmQooXs"; //* previous - - AIzaSyDluRkSg9Q_D3LMhrRGF-W1YjmZaXrgYZw
+export const API_KEY = "AIzaSyDluRkSg9Q_D3LMhrRGF-W1YjmZaXrgYZw"; //* previous - - AIzaSyDluRkSg9Q_D3LMhrRGF-W1YjmZaXrgYZw
 
 export const YOUTUBE_VIDEOS_LIST_API =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
@@ -6,7 +6,7 @@ export const YOUTUBE_VIDEOS_LIST_API =
 export const YOUTUBE_VIDEO_API =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=";
 export const CHANNEL_DETAILS_API =
-  " https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=";
+  " https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics%2CcontentOwnerDetails&part=topicDetails&id=";
 export const COMMENT_API =
   "https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=50&videoId=";
 //*1.44.37
@@ -25,3 +25,8 @@ export const AUTO_COMPLETE_SEARCH_API_OPTIONS = {
     "x-rapidapi-host": "google-search-master.p.rapidapi.com",
   },
 };
+//*
+export const CHANNEL_VIDEOS_API =
+  "https://youtube.googleapis.com/youtube/v3/activities?part=snippet%2Cid&channelId=";
+export const CHANNEL_PAGE_API =
+  "https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&channelId=";

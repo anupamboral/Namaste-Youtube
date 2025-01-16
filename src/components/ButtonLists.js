@@ -59,8 +59,8 @@ const ButtonLists = () => {
       >
         {list.map((btnName, index) => {
           return (
-            <Link to={"/results?search_query=" + btnName}>
-              <Button key={index} name={btnName} />
+            <Link key={index} to={"/results?search_query=" + btnName}>
+              <Button name={btnName} />
             </Link>
           );
         })}

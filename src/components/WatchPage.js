@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { closeMenu } from "../utils/appSlice";
 import { useDispatch } from "react-redux";
-import { useSearchParams } from "react-router-dom"; //* see 116 line of notes
+import { Link, useSearchParams } from "react-router-dom"; //* see 116 line of notes
 import { API_KEY, YOUTUBE_VIDEO_API } from "../utils/config";
 import ChannelInfo from "./ChannelInfo";
 import VideoComments from "./VideoComments";
@@ -44,7 +44,9 @@ const WatchPage = () => {
       </h2>
       <div className="flex lg:w-[900px] w-96">
         <div className="flex flex-col ">
-          <ChannelInfo channelId={videoInfo[0].snippet.channelId} />
+          <Link to={"/channel/" + videoInfo[0].snippet.channelId}>
+            <ChannelInfo channelId={videoInfo[0].snippet.channelId} />
+          </Link>
         </div>
         <button className="flex bg-slate-700 ml-10 rounded-lg mt-4 p-2 h-12 w-36 hover:bg-slate-800 font-bold">
           <img

@@ -7,7 +7,7 @@ import Head from "./Head";
 const Body = () => {
   return (
     <div>
-      <div>
+      <div className="relative">
         <Head />
       </div>
       <div className=" body flex text-white bg- bg-black overflow-hidden">
