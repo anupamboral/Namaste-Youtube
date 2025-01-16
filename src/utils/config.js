@@ -25,11 +25,9 @@ export const AUTO_COMPLETE_SEARCH_API_OPTIONS = {
     "x-rapidapi-host": "google-search-master.p.rapidapi.com",
   },
 };
-<<<<<<< HEAD
+
 //*
 export const CHANNEL_VIDEOS_API =
   "https://youtube.googleapis.com/youtube/v3/activities?part=snippet%2Cid&channelId=";
 export const CHANNEL_PAGE_API =
   "https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&channelId=";
-=======
->>>>>>> bd1fdf985bea3ed11d494f70db79bc74ae94cc93

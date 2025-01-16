@@ -6,11 +6,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainContainer from "./components/MainContainer";
 import WatchPage from "./components/WatchPage";
 import ResultsPage from "./components/ResultsPage";
-<<<<<<< HEAD
+
 import Channel from "./components/Channel";
-=======
->>>>>>> bd1fdf985bea3ed11d494f70db79bc74ae94cc93
-//*2.14
+
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -28,13 +26,11 @@ const appRouter = createBrowserRouter([
         path: "/results",
         element: <ResultsPage />,
       },
-<<<<<<< HEAD
+
       {
         path: "/channel/:channelId",
         element: <Channel />,
       },
-=======
->>>>>>> bd1fdf985bea3ed11d494f70db79bc74ae94cc93
     ],
   },
 ]);

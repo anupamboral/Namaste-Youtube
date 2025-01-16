@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {
-  API_KEY,
-  CHANNEL_DETAILS_API,
-  CHANNEL_PAGE_API,
-} from "../utils/config";
-import ChannelUploads from "./ChannelVideos";
+import { API_KEY, CHANNEL_DETAILS_API } from "../utils/config";
+
 import ChannelVideos from "./ChannelVideos";
 
 const Channel = () => {
