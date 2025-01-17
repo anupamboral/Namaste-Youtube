@@ -11,7 +11,10 @@ const Channel = () => {
   useEffect(() => {
     const channelLoader = async () => {
       const data = await fetch(
-        CHANNEL_DETAILS_API + channelId + "&maxResults=50&key=" + API_KEY
+        CHANNEL_DETAILS_API +
+          channelId +
+          "&maxResults=50&type=video&videoDuration=long&key=" +
+          API_KEY
       );
       const json = await data.json();
       console.log(json);
@@ -26,7 +29,7 @@ const Channel = () => {
         <img
           alt="channel-background-image"
           src={channelData[0].snippet.thumbnails.high.url}
-          className="lg:w-[900px] lg:h-50 h-40 rounded-2xl w-full"
+          className="lg:w-[500px] lg:h-56 h-40 rounded-2xl w-full"
         />
       </div>
       <div className="lg:w-[1000px] lg:h-60 h-40 rounded-2xl w-full flex">
@@ -34,11 +37,11 @@ const Channel = () => {
           <img
             alt="channel-background-image"
             src={channelData[0].snippet.thumbnails.medium.url}
-            className="ml-52 m-4 lg:w-[150px] lg:h-40 h-20 rounded-full w-full"
+            className="lg:ml-52 ml-2 m-4 lg:w-[150px] lg:h-40 h-20 rounded-full w-full"
           />
         </div>
-        <div className="ml-2">
-          <h3 className="mt-5 text-5xl font-bold">
+        <div className="ml-3">
+          <h3 className="mt-5 mb-2 lg:text-5xl text-3xl font-bold">
             {channelData[0].snippet.title}
           </h3>
           <ul className=" flex">
@@ -58,7 +61,7 @@ const Channel = () => {
             </p>
           </details>
 
-          <button className="p-1 items-center font-bold  mt-1 rounded-3xl flex bg-slate-800 hover:bg-slate-600 pr-2">
+          <button className="p-1 items-center font-bold  mt-1 rounded-3xl flex bg-slate-800 hover:bg-slate-600 pr-2 mb-2">
             {" "}
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3Cxh896cVCHOzOHpXujmz9V4LdtSuw8--AA&s"
@@ -68,9 +71,8 @@ const Channel = () => {
             Subscribe
           </button>
         </div>
-        <div></div>
       </div>
-      <div>
+      <div className="pt-4">
         <ChannelVideos channelId={channelId} />
       </div>
     </div>

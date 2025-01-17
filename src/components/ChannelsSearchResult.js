@@ -10,9 +10,9 @@ const ChannelSearchResult = ({ info }) => {
         className="lg:flex px-4 pl-10 rounded-lg mb-2 w-full"
         to={"/channel/" + info.snippet.channelId}
       >
-        <div className="w-1/3 flex">
+        <div className="lg:w-1/3 w-full flex justify-center content-center">
           <img
-            className="lg:w-[180px] w-[180px] p-1 h-[150px] m-1 rounded-full justify-center"
+            className="lg:w-[160px] w-[180px] p-1 h-[150px] m-1 rounded-full items-center "
             alt="video thumbnail"
             src={info.snippet.thumbnails.medium.url}
           />

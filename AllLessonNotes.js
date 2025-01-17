@@ -152,3 +152,26 @@ Ultimately, when the timeout occurs, the debounced function is executed. The pro
     //*  then our new component will be mounted and it will again start a new timer of 200s.⁡
   ⁡⁢⁣⁣}, [searchQuery])⁡;⁡*/
 //* So when we are searching something now our suggestions are displaying on the ui but when we focusout from the input box so when we click outside of the input box then the suggestions should not be displayed so that is why we will create another state variable named showSuggestions and its initial value will be false because initially we do not want to show the suggestions and then in the input box we will use a event which is named as on focus event so basically when we will click inside the input box this event will be triggered and then we will make the state variables value to true which will display the suggestions and then we will also use another event named on blur so this event basically is for hiding our suggestions so when we are not focusing on the input box so clicking out of the input box then this event will be triggered and inside this event we will set the suggestions state variable value to false again that will eventually hide the suggestions box.
+
+//* ⁡⁣⁢⁣𝘂𝘀𝗲𝗡𝗮𝘃𝗶𝗴𝗮𝘁𝗲() 𝗵𝗼𝗼𝗸 𝗳𝗿𝗼𝗺 𝗿𝗲𝗮𝗰𝘁 𝗿𝗼𝘂𝘁𝗲𝗿 𝗱𝗼𝗺⁡
+/*This hook allows the programmer to navigate the user to a new page without the user interacting.
+
+For normal navigation, it's best to use Link or NavLink. They provide a better default user experience like keyboard events, accessibility labeling, "open in new window", right click context menus, etc.
+
+Reserve usage of useNavigate to situations where the user is not interacting but you need to navigate, for example:
+
+After a form submission completes
+Logging them out after inactivity
+Timed UIs like quizzes, etc.*/
+//* ⁡⁣⁢⁣usage of this hook for our searching functionality⁡
+//*⁡⁣⁢⁣const navigate = useNavigate();⁡ //*This hook allows the programmer to navigate the user to a new page without the user interacting. we will use this hook to navigate the user to search results page when he search something on te search bar, because here we can't use Link component when onClick event or onSubmit Event occurs. check documentation for more info.
+/*         <input
+            onKeyDown={(e) =>
+              e.key === "Enter" &&
+              navigate("/results?search_query=" + searchQuery)
+            }
+          />
+
+          <button onClick={() => navigate("/results?search_query=" + searchQuery)}>
+            🔍
+          </button>*/

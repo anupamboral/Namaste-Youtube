@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   AUTO_COMPLETE_SEARCH_API,
   AUTO_COMPLETE_SEARCH_API_OPTIONS,
@@ -11,7 +11,9 @@ import {
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState(""); //* for keep track what the user is typing
   console.log(searchQuery);
-  const [suggestions, setSuggestions] = useState([]); //* suggestion data coming from api
+  const [suggestions, setSuggestions] = useState([]); //* suggestion data coming from api.
+
+  const navigate = useNavigate(); //*This hook allows the programmer to navigate the user to a new page without the user interacting. we will use this hook to navigate the user to search results page when he search something on te search bar, because here we can't use Link component when onClick event or onSubmit Event occurs. check documentation for more info.
 
   //*for hiding onBlur(focus out) and displaying suggestion on focus
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -89,12 +91,18 @@ const Head = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestions(false)} //*make it true when api starts working
             onBlur={() => setShowSuggestions(false)}
+            onKeyDown={(e) =>
+              e.key === "Enter" &&
+              navigate("/results?search_query=" + searchQuery)
+            }
           />
-          <Link to={"/results?search_query=" + searchQuery}>
-            <button className=" h-10 mt-1 shadow-white shadow-md border-black border-2 rounded-r-full text-white p-2 px-4  hover:shadow-gray-200">
-              🔍
-            </button>
-          </Link>
+
+          <button
+            onClick={() => navigate("/results?search_query=" + searchQuery)}
+            className=" h-10 mt-1 shadow-white shadow-md border-black border-2 rounded-r-full text-white p-2 px-4  hover:shadow-gray-200"
+          >
+            🔍
+          </button>
         </div>
         {showSuggestions && (
           <div className="relative">

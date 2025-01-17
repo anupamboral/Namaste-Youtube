@@ -10,7 +10,7 @@ const VideoComments = ({ videoId, channelId }) => {
       const data = await fetch(COMMENT_API + videoId + "&key=" + API_KEY);
       const json = await data.json();
       console.log(json);
-      setComments(json.items);
+      json.error ? setComments([]) : setComments(json?.items); //* in some videos the comments are disabled, so for those videos we added this condition , so even api returns error because of comments disabled we can still show the video without comments, so if it returns error then we will keep the state variable empty array.
     };
 
     commentLoader();

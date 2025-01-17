@@ -11,18 +11,21 @@ const ChannelVideos = ({ channelId }) => {
   }, []);
   const videosLoader = async () => {
     const data = await fetch(
-      CHANNEL_VIDEOS_API + channelId + "&maxResults=50&key=" + API_KEY
+      CHANNEL_VIDEOS_API +
+        channelId +
+        "&maxResults=50&type=video&videoDuration=long&key=" +
+        API_KEY
     );
     const json = await data.json();
     console.log(json.items);
     setUploadedVideos(json.items);
   };
-  console.log(uploadedVideos[0].contentDetails);
+  // console.log(uploadedVideos[0].contentDetails);
   if (uploadedVideos.length === 0) return null;
   return (
     <div>
       {uploadedVideos.map((video) => (
-        <Link key={video.id} to={"/watch?v=" + video.id}>
+        <Link key={video.etag} to={"/watch?v=" + video.id.videoId}>
           <SearchResult info={video} />
         </Link>
       ))}
