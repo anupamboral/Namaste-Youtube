@@ -6,12 +6,12 @@ import Head from "./Head";
 
 const Body = () => {
   return (
-    <div>
-      <div className="relative">
+    <div className="">
+      <div>
         <div>
           <Head />
         </div>
-        <div className=" body flex text-white bg- bg-black overflow-hidden">
+        <div className=" body flex text-white  bg-black overflow-hidden">
           <SideBar />
           <Outlet />
         </div>

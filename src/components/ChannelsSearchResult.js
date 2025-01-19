@@ -5,11 +5,8 @@ import MiniChannelInfo from "./MiniChannelInfo";
 const ChannelSearchResult = ({ info }) => {
   console.log(info);
   return (
-    <div className="border-b-2 border-x-slate-400">
-      <Link
-        className="lg:flex px-4 pl-10 rounded-lg mb-2 w-full"
-        to={"/channel/" + info.snippet.channelId}
-      >
+    <div className="border-b-2 border-x-slate-400 rounded-lg m-4 mx-16 pb-4 hover:bg-slate-900">
+      <div className="lg:flex px-4 pl-10  mb-2 w-full">
         <div className="lg:w-1/3 w-full flex justify-center content-center">
           <img
             className="lg:w-[160px] w-[180px] p-1 h-[150px] m-1 rounded-full items-center "
@@ -26,7 +23,7 @@ const ChannelSearchResult = ({ info }) => {
           </h2>
           <MiniChannelInfo channelId={info.snippet.channelId} />
         </div>
-      </Link>
+      </div>
     </div>
   );
 };

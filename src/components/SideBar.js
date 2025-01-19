@@ -1,36 +1,42 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SideBar = () => {
   const isOpen = useSelector((store) => store.app.isNavOpen);
+  const navigate = useNavigate();
   //* earlier return
   if (!isOpen) return null; //* isfalse= false return null to collapse the sidebar.
 
   return (
     <div className="sideBar pr-4 w-56 border-r-[1px] ">
-      <Link to={"/"}>
-        <h1 className="home p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            focusable="false"
-            aria-hidden="true"
-            className="mr-2"
-          >
-            <path
-              clipRule="evenodd"
-              d="M22.146 11.146a.5.5 0 01-.353.854H20v7.5a1.5 1.5 0 01-1.5 1.5H14v-8h-4v8H5.5A1.5 1.5 0 014 19.5V12H2.207a.5.5 0 01-.353-.854L12 1l10.146 10.146Z"
-              fillRule="evenodd"
-            ></path>
-          </svg>
-          Home
-        </h1>
-      </Link>
-      <h1 className=" p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
+      <button
+        className="home p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer w-full flex ml-2"
+        onClick={() => navigate("/")}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          focusable="false"
+          aria-hidden="true"
+          className="mr-2"
+        >
+          <path
+            clipRule="evenodd"
+            d="M22.146 11.146a.5.5 0 01-.353.854H20v7.5a1.5 1.5 0 01-1.5 1.5H14v-8h-4v8H5.5A1.5 1.5 0 014 19.5V12H2.207a.5.5 0 01-.353-.854L12 1l10.146 10.146Z"
+            fillRule="evenodd"
+          ></path>
+        </svg>
+        Home
+      </button>
+
+      <button
+        className=" p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer flex w-full ml-2   "
+        onClick={() => navigate("/results?search_query=shorts")}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -48,8 +54,11 @@ const SideBar = () => {
           ></path>
         </svg>
         Shorts
-      </h1>
-      <h1 className="p-2 mb-6 font-bold   hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg border-b-[1px] flex ml-2">
+      </button>
+      <button
+        className="p-2 mb-6 font-bold   hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg border-b-[1px] flex cursor-pointer ml-2 w-full"
+        onClick={() => navigate("/results?search_query=Subscriptions")}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -67,13 +76,19 @@ const SideBar = () => {
           ></path>
         </svg>
         Subscriptions
-      </h1>
+      </button>
       <hr></hr>
-      <h1 className="p-2  font-bold mb-2 mt-4  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest  rounded-lg  ml-2">
+      <button
+        className="p-2  font-bold mb-2 mt-4  hover:shadow-white hover:shadow-sm hover:bg-s cursor-pointerlate-900 tracking-widest  rounded-lg  ml-2"
+        onClick={() => navigate("/results?search_query=You")}
+      >
         You &gt;
-      </h1>
+      </button>
       <ul>
-        <li className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg  ml-2 flex">
+        <li
+          className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer  ml-2 flex"
+          onClick={() => navigate("/results?search_query=History")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -92,7 +107,10 @@ const SideBar = () => {
           </svg>
           History
         </li>
-        <li className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
+        <li
+          className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer flex ml-2"
+          onClick={() => navigate("/results?search_query=Playlists")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -111,7 +129,10 @@ const SideBar = () => {
           </svg>
           Playlists
         </li>
-        <li className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
+        <li
+          className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer flex ml-2"
+          onClick={() => navigate("/results?search_query=Your Videos")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -130,7 +151,10 @@ const SideBar = () => {
           </svg>{" "}
           Your Videos
         </li>
-        <li className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
+        <li
+          className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer flex ml-2"
+          onClick={() => navigate("/results?search_query=Your Courses")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -149,7 +173,10 @@ const SideBar = () => {
           </svg>
           Your Courses
         </li>
-        <li className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
+        <li
+          className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer flex ml-2"
+          onClick={() => navigate("/results?search_query=Watch Later")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -168,7 +195,10 @@ const SideBar = () => {
           </svg>
           Watch Later
         </li>
-        <li className="p-2 border-b-[1px] font-bold   hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2 mb-4">
+        <li
+          className="p-2 border-b-[1px] font-bold   hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer flex ml-2 mb-4"
+          onClick={() => navigate("/results?search_query=Liked videos")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -190,11 +220,17 @@ const SideBar = () => {
       </ul>
 
       <hr></hr>
-      <h1 className="p-2  font-bold mb-2 mt-4  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest  rounded-lg  ml-2">
+      <button
+        className="p-2  font-bold mb-2 mt-4  hover:shadow-white hover:shadow-sm hover:bg-s cursor-pointerlate-900 tracking-widest  rounded-lg  ml-2"
+        onClick={() => navigate("/results?search_query=Explore")}
+      >
         Explore
-      </h1>
+      </button>
       <ul>
-        <li className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg  ml-2 flex">
+        <li
+          className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer  ml-2 flex"
+          onClick={() => navigate("/results?search_query=Trending")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -213,7 +249,10 @@ const SideBar = () => {
           </svg>
           Trending
         </li>
-        <li className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
+        <li
+          className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer flex ml-2"
+          onClick={() => navigate("/results?search_query=Shopping")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -232,7 +271,10 @@ const SideBar = () => {
           </svg>
           Shopping
         </li>
-        <li className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
+        <li
+          className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer flex ml-2"
+          onClick={() => navigate("/results?search_query=Music")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -251,7 +293,10 @@ const SideBar = () => {
           </svg>
           Music
         </li>
-        <li className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
+        <li
+          className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer flex ml-2"
+          onClick={() => navigate("/results?search_query=Films")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -270,7 +315,10 @@ const SideBar = () => {
           </svg>
           Films
         </li>
-        <li className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
+        <li
+          className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer flex ml-2"
+          onClick={() => navigate("/results?search_query=Live")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -289,7 +337,10 @@ const SideBar = () => {
           </svg>
           Live
         </li>
-        <li className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg flex ml-2">
+        <li
+          className="p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer flex ml-2"
+          onClick={() => navigate("/results?search_query=Gaming")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"

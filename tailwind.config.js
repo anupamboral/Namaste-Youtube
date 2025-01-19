@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        butterfly: "url('/src/imgs/butterfly.webp')",
+      },
+    },
   },
   plugins: [],
 };

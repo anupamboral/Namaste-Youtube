@@ -33,14 +33,14 @@ const Channel = () => {
         />
       </div>
       <div className="lg:w-[1000px] lg:h-60 h-40 rounded-2xl w-full flex">
-        <div>
+        <div className="w-1/3 lg:mr-6">
           <img
             alt="channel-background-image"
             src={channelData[0].snippet.thumbnails.medium.url}
-            className="lg:ml-52 ml-2 m-4 lg:w-[150px] lg:h-40 h-20 rounded-full w-full"
+            className="lg:ml-48 lg:mr-6 ml-2 m-4 lg:w-[150px] lg:h-40 h-20 rounded-full w-full"
           />
         </div>
-        <div className="ml-3">
+        <div className="ml-6  w-2/3 p-6 pt-0">
           <h3 className="mt-5 mb-2 lg:text-5xl text-3xl font-bold">
             {channelData[0].snippet.title}
           </h3>

@@ -8,6 +8,7 @@ import WatchPage from "./components/WatchPage";
 import ResultsPage from "./components/ResultsPage";
 
 import Channel from "./components/Channel";
+import Error from "./components/Error";
 
 const appRouter = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ const appRouter = createBrowserRouter([
         element: <Channel />,
       },
     ],
+    errorElement: <Error />,
   },
 ]);
 function App() {
