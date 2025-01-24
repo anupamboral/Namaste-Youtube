@@ -8,7 +8,7 @@ const list = [
   "Tech",
   "Spirituality",
   "Cooking",
-  "Football",
+  "OmSwami",
   "Cricket",
   "Podcast",
   "Consciousness",
@@ -46,7 +46,7 @@ const ButtonLists = () => {
   };
 
   return (
-    <div className="flex   bg-black pb-2 flex-shrink">
+    <div className="flex   bg-black pb-2 flex-shrink ">
       <button
         onClick={prev}
         className="hover:rounded-full w-10 h-10 mr-2 px-4 py-2 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white ml-2  font-extrabold "
@@ -67,7 +67,7 @@ const ButtonLists = () => {
       </div>
       <button
         onClick={next}
-        className="hover:rounded-full w-10 h-10  px-4 py-2 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white ml-2 font-extrabold"
+        className="hover:rounded-full w-10 h-10  px-4 py-2 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white ml-2 font-extrabold "
       >
         &gt;
       </button>
