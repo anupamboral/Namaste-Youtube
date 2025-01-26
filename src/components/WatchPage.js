@@ -83,9 +83,9 @@ const WatchPage = () => {
         </div>
       </div>
       {videoInfo[0].liveStreamingDetails && (
-        <aside className="w-full border border-stone-200 h-[450px] mr-10 p-4 rounded-lg ">
-          <p className="font-bold text-xl border-b-2 border-zinc-200 pb-2">
-            Live Chat ||{" "}
+        <aside className="w-full border border-stone-200 h-[500px] mr-10 py-4 rounded-lg ">
+          <p className="font-bold text-xl border-b-2 border-zinc-200 px-4 pb-2">
+            Live Chat ||
             {videoInfo[0].liveStreamingDetails.concurrentViewers
               ? videoInfo[0].liveStreamingDetails.concurrentViewers +
                 " people watching"

@@ -90,15 +90,21 @@ const Head = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestions(false)} //*make it true when api starts working
-            // onBlur={() => setShowSuggestions(false)}
-            onKeyDown={(e) =>
-              e.key === "Enter" &&
-              navigate("/results?search_query=" + searchQuery)
+            onBlur={() => setShowSuggestions(false)}
+            onKeyDown={
+              (e) =>
+                e.key === "Enter" &&
+                navigate("/results?search_query=" + searchQuery) &&
+                setSearchQuery("")
+              // * opening the results page by changing the route and clearing the input box when user does the search by clicking enter
             }
           />
 
           <button
-            onClick={() => navigate("/results?search_query=" + searchQuery)}
+            onClick={() =>
+              navigate("/results?search_query=" + searchQuery) &&
+              setSearchQuery("")
+            }
             className=" h-10 mt-1 shadow-white shadow-md border-black border-2 rounded-r-full text-white p-2 px-4  hover:shadow-gray-200"
           >
             🔍
