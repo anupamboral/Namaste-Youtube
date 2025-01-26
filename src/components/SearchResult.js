@@ -2,7 +2,7 @@ import React from "react";
 import MiniChannelInfo from "./MiniChannelInfo";
 
 const SearchResult = ({ info }) => {
-  console.log(info);
+  // console.log(info);
   const publishDetails = new Date(info.snippet.publishedAt);
   const publishDate = publishDetails.getDate();
   const publishMonth = publishDetails.getMonth() + 1; //* month counting starts from 0 thats why we have to add 1

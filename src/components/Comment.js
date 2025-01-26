@@ -1,7 +1,7 @@
 import React from "react";
 
 const Comment = ({ commentData }) => {
-  console.log(commentData.snippet);
+  // console.log(commentData.snippet);
   const publishDetails = new Date(
     commentData.snippet.topLevelComment.snippet.publishedAt
   );
@@ -16,25 +16,25 @@ const Comment = ({ commentData }) => {
       /<[^>]+>/g,
       ""
     ); //* converting html elements(comments) to normal string because some comments where in html format.
-  console.log(
-    publishDate,
-    publishMonth,
-    publishYear,
-    publishHour,
-    publishMinutes
-  );
+  // console.log(
+  //   publishDate,
+  //   publishMonth,
+  //   publishYear,
+  //   publishHour,
+  //   publishMinutes
+  // );
   return (
-    <div className="flex m-4 py-6 lg:mx-10 mx-2 bg-slate-900 lg:w-[900px]">
+    <div className="flex mt-4 py-6  bg-slate-900 lg:w-[850px]">
       <img
         className="lg:ml-20 ml-2 rounded-3xl w-10 h-10"
         alt="commenter-Image"
         src={commentData.snippet.topLevelComment.snippet.authorProfileImageUrl}
       />
-      <ul className="ml-2">
-        <li className="">
+      <div className="ml-2">
+        <div className="">
           {commentData.snippet.topLevelComment.snippet.authorDisplayName}
-        </li>
-        <li className="lg:ml-2 flex text-slate-500">
+        </div>
+        <div className=" lg:flex text-slate-500">
           <p className="mr-2">
             Date - {publishDate + "/" + publishMonth + "/" + publishYear}
           </p>
@@ -43,8 +43,8 @@ const Comment = ({ commentData }) => {
             {publishMinutes === 0 ? " 00" : " " + publishMinutes}
             {publishHour > 12 ? " pm" : " am"}
           </p>
-        </li>
-        <li>{commentText}</li>
+        </div>
+        <p>{commentText}</p>
         <button className="flex bg-slate-700 lg:ml-10 ml-5 rounded-lg mt-4 p-2 h-10 w-16 hover:bg-slate-800 font-bold">
           <img
             className=" w-4 h-4 mr-1"
@@ -58,7 +58,7 @@ const Comment = ({ commentData }) => {
             src="https://img.icons8.com/?size=80&id=TUqJsJ4ey9V0&format=png"
           ></img>
         </button>
-      </ul>
+      </div>
       <hr />
     </div>
   );

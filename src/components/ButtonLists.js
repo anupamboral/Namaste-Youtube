@@ -3,7 +3,7 @@ import Button from "./Button";
 import { Link } from "react-router-dom";
 const list = [
   "All",
-  "News",
+  "Live",
   "Gaming",
   "Tech",
   "Spirituality",

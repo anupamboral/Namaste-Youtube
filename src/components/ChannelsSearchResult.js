@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import MiniChannelInfo from "./MiniChannelInfo";
 
 const ChannelSearchResult = ({ info }) => {
-  console.log(info);
+  // console.log(info);
   return (
     <div className="border-b-2 border-x-slate-400 rounded-lg m-4 mx-16 pb-4 hover:bg-slate-900">
       <div className="lg:flex px-4 pl-10  mb-2 w-full">
