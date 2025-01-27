@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { API_KEY, CHANNEL_VIDEOS_API } from "../utils/config";
 import SearchResult from "./SearchResult";
 import { Link } from "react-router-dom";
+import ShimmerUI from "./ShimmerUI";
 
 const ChannelVideos = ({ channelId }) => {
   console.log(channelId);
@@ -21,7 +22,7 @@ const ChannelVideos = ({ channelId }) => {
     setUploadedVideos(json.items);
   };
   // console.log(uploadedVideos[0].contentDetails);
-  if (uploadedVideos.length === 0) return null;
+  if (uploadedVideos.length === 0) return <ShimmerUI />;
   return (
     <div>
       {uploadedVideos.map((video) => (

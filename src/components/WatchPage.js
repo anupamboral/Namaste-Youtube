@@ -7,6 +7,7 @@ import ChannelInfo from "./ChannelInfo";
 import VideoComments from "./VideoComments";
 import LiveChatMessage from "./LiveChatMessage";
 import LiveChat from "./LiveChat";
+import ShimmerUI from "./ShimmerUI";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const WatchPage = () => {
     console.log(videoInfo.length === 1);
   }, []);
   //* early return
-  if (videoInfo.length === 0) return null;
+  if (videoInfo.length === 0) return <ShimmerUI />;
 
   return (
     <div className="lg:flex w-full mr-2">

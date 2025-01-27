@@ -3,6 +3,7 @@ import { Link, Links, useSearchParams } from "react-router-dom";
 import { API_KEY, SEARCH_SUGGESTIONS_API } from "../utils/config";
 import SearchResult from "./SearchResult";
 import ChannelSearchResult from "./ChannelsSearchResult";
+import ShimmerUI from "./ShimmerUI";
 
 const ResultsPage = () => {
   const [params] = useSearchParams();
@@ -21,7 +22,7 @@ const ResultsPage = () => {
     getSearchResults();
   }, [query]); //* the useNavigate component take us to this searchResults page when we search something in the searchbar from another route like home page or channel page and it will trigger the useEffect hook to trigger the api call,  but when we are already on the search results page , and search anything second time and click enter then it will change the url route but as the page is already rendered so it will not call the useEffect hooks if we don't mention anything in the dependency array that's why we have to mention the query we get from the url in the dependency array to call the useEffect hook whenever the user search something.
 
-  if (searchResults.length === 0) return null;
+  if (searchResults.length === 0) return <ShimmerUI />;
 
   const filteredChannels = searchResults.filter(
     (channel) => channel.id.channelId
