@@ -1,4 +1,4 @@
-export const API_KEY = "AIzaSyCfOwmZsqEI5GWYak44yFeDW96KO6-3HXg"; //* previous - -1. AIzaSyDluRkSg9Q_D3LMhrRGF-W1YjmZaXrgYZw,2. AIzaSyABDEgLcdCwAgnJj6gRhm-2HP6AdmQooXs, 3. AIzaSyCfOwmZsqEI5GWYak44yFeDW96KO6-3HXg, 4. AIzaSyA2GxnByo1yVTVfzkbHAyIezbJ_RNK6iaY
+export const API_KEY = "AIzaSyA2GxnByo1yVTVfzkbHAyIezbJ_RNK6iaY"; //* previous - -1. AIzaSyDluRkSg9Q_D3LMhrRGF-W1YjmZaXrgYZw,2. AIzaSyABDEgLcdCwAgnJj6gRhm-2HP6AdmQooXs, 3. AIzaSyCfOwmZsqEI5GWYak44yFeDW96KO6-3HXg, 4. AIzaSyA2GxnByo1yVTVfzkbHAyIezbJ_RNK6iaY
 
 export const YOUTUBE_VIDEOS_LIST_API =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
@@ -31,3 +31,6 @@ export const CHANNEL_VIDEOS_API =
   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=";
 export const CHANNEL_PAGE_API =
   "https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&channelId=";
+
+export const LIVE_CHAT_API =
+  " https://youtube.googleapis.com/youtube/v3/liveChat/messages?liveChatId=";

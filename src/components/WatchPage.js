@@ -91,7 +91,9 @@ const WatchPage = () => {
                 " people watching"
               : ""}
           </p>
-          <LiveChat />
+          <LiveChat
+            liveChatId={videoInfo[0].liveStreamingDetails.activeLiveChatId}
+          />
         </aside>
       )}
     </div>
