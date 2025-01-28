@@ -42,7 +42,7 @@ const LiveChat = ({ liveChatId }) => {
             message: randomSentence(),
           })
         );
-    }, 2000);
+    }, 3000);
 
     //* garbage collection (clearing the effect and making the chat box empty)
     return () => clearInterval(i) && emptyMessages();
@@ -50,7 +50,7 @@ const LiveChat = ({ liveChatId }) => {
 
   return (
     <div>
-      <div className="overflow-y-scroll h-[400px] px-4  flex flex-col-reverse">
+      <div className="overflow-y-scroll  w-full overflow-x-hidden h-[400px] px-4  flex flex-col-reverse">
         {chatMessages.map((message, index) => (
           <LiveChatMessage
             key={index}
