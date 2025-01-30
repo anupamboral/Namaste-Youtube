@@ -31,7 +31,7 @@ const ResultsPage = () => {
   console.log(filteredVideos);
   console.log(filteredChannels);
   return (
-    <div>
+    <div className="px-4">
       {filteredChannels.map((channel) => (
         <Link to={"/channel/" + channel.id.channelId}>
           <ChannelSearchResult info={channel} />

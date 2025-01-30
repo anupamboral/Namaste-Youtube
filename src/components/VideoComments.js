@@ -17,7 +17,7 @@ const VideoComments = ({ videoId, channelId }) => {
   }, []);
   if (comments.length === 0) return null;
   return (
-    <div className=" lg:w-[900px] h-[600px] overflow-y-scroll lg:mx-10 mx-2 border-b-2 border-white pb-4 m-10">
+    <div className=" lg:w-[900px] w-[340px] h-[600px] overflow-y-scroll lg:mx-10 mx-2 border-b-2 border-white pb-4 m-10">
       {comments.map((comment) => (
         <Comment key={comment.id} commentData={comment} />
       ))}

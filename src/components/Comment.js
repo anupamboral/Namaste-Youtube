@@ -24,7 +24,7 @@ const Comment = ({ commentData }) => {
   //   publishMinutes
   // );
   return (
-    <div className="flex mt-4 py-6  bg-slate-900 lg:w-[850px]">
+    <div className="flex mt-4 py-6  bg-slate-900 lg:w-[850px] w-[320px">
       <img
         className="lg:ml-20 ml-2 rounded-3xl w-10 h-10"
         alt="commenter-Image"
@@ -44,8 +44,8 @@ const Comment = ({ commentData }) => {
             {publishHour > 12 ? " pm" : " am"}
           </p>
         </div>
-        <p>{commentText}</p>
-        <button className="flex bg-slate-700 lg:ml-10 ml-5 rounded-lg mt-4 p-2 h-10 w-16 hover:bg-slate-800 font-bold">
+        <p className="lg:w-full w-[280px] overflow-hidden">{commentText}</p>
+        <button className="flex bg-slate-700 lg:ml-10 ml-5 rounded-lg mt-4 p-2 `h-10 w-16 hover:bg-slate-800 font-bold">
           <img
             className=" w-4 h-4 mr-1"
             alt="like"

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const appSlice = createSlice({
   name: "appSlice",
   initialState: {
-    isNavOpen: true,
+    isNavOpen: false,
   },
   reducers: {
     toggleMenu: (state) => {

@@ -23,7 +23,7 @@ const ChannelInfo = ({ channelId }) => {
   return (
     <div className=" mt-4 ml-2 lg:ml-20 flex ">
       <img
-        className="rounded-3xl w-11"
+        className="rounded-3xl w-11 h-11"
         alt="channel-image"
         src={channelImage}
       />

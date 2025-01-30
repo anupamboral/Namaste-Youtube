@@ -25,26 +25,26 @@ const Channel = () => {
   if (channelData.length === 0) return null;
   return (
     <div className="w-full">
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center pb-10">
         <img
           alt="channel-background-image"
           src={channelData[0].snippet.thumbnails.high.url}
           className="lg:w-[500px] lg:h-56 h-40 rounded-2xl w-full"
         />
       </div>
-      <div className="lg:w-[1000px] lg:h-60 h-40 rounded-2xl w-full flex">
-        <div className="w-1/3 lg:mr-6">
+      <div className="lg:w-[1000px] lg:h-60 h-52 rounded-2xl w-full flex">
+        <div className="w-1/3 lg:mr-6 flex justify-end">
           <img
-            alt="channel-background-image"
+            alt="channel-image"
             src={channelData[0].snippet.thumbnails.medium.url}
-            className="lg:ml-48 lg:mr-6 ml-2 m-4 lg:w-[150px] lg:h-40 h-20 rounded-full w-full"
+            className="lg:ml-48 lg:mr-6 ml-2 m-4 lg:w-[150px] lg:h-40 h-20 rounded-full w-20"
           />
         </div>
         <div className="ml-6  w-2/3 p-6 pt-0">
           <h3 className="mt-5 mb-2 lg:text-5xl text-3xl font-bold">
             {channelData[0].snippet.title}
           </h3>
-          <ul className=" flex">
+          <ul className=" lg:flex ">
             <li className="font-bold">{channelData[0].snippet.customUrl}</li>
             <li className="ml-2 text-slate-400">
               * {Math.round(channelData[0].statistics.subscriberCount) / 1000}K

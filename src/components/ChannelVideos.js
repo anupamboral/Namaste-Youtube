@@ -24,7 +24,7 @@ const ChannelVideos = ({ channelId }) => {
   // console.log(uploadedVideos[0].contentDetails);
   if (uploadedVideos.length === 0) return <ShimmerUI />;
   return (
-    <div>
+    <div className="pl-4">
       {uploadedVideos.map((video) => (
         <Link key={video.etag} to={"/watch?v=" + video.id.videoId}>
           <SearchResult info={video} />
