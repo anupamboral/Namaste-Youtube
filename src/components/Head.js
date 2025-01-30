@@ -10,7 +10,8 @@ import {
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState(""); //* for keep track what the user is typing
-  console.log(searchQuery);
+  // console.log(searchQuery);
+
   const [suggestions, setSuggestions] = useState([]); //* suggestion data coming from api.
 
   const navigate = useNavigate(); //*This hook allows the programmer to navigate the user to a new page without the user interacting. we will use this hook to navigate the user to search results page when he search something on te search bar, because here we can't use Link component when onClick event or onSubmit Event occurs. check documentation for more info.
@@ -24,8 +25,8 @@ const Head = () => {
 
     const timer = setTimeout(
       () => (searchQuery.length > 0 ? getSearchQuery() : null),
-      2000
-    ); //* setting a timer of 200ms for making the api call if searchQuery is not empty.
+      500
+    ); //* setting a timer of 200ms(later changed to 500ms) for making the api call if searchQuery is not empty.
 
     //* making suggestions empty when there is no user input
     if (searchQuery.length === 0) setSuggestions([]);
@@ -39,20 +40,21 @@ const Head = () => {
     return () => clearTimeout(timer); //* this clean up return function will be only called when the current component will be unmounted/trashed.
   }, [searchQuery]);
   const getSearchQuery = async () => {
-    // const data = await fetch(
-    //   SEARCH_SUGGESTIONS_API + searchQuery + "&key=" + API_KEY
-    // );
-    // const json = await data.json();
-    // console.log(json);
-    // setSuggestions(json.items);
-    const url =
-      AUTO_COMPLETE_SEARCH_API +
-      searchQuery +
-      AUTO_COMPLETE_SEARCH_API_PARAMETERS;
-    const data = await fetch(url, AUTO_COMPLETE_SEARCH_API_OPTIONS);
+    //* old rapid api
+    // const url =
+    //   AUTO_COMPLETE_SEARCH_API +
+    //   searchQuery +
+    //   AUTO_COMPLETE_SEARCH_API_PARAMETERS;
+
+    // const data = await fetch(url, AUTO_COMPLETE_SEARCH_API_OPTIONS);
+
+    const data = await fetch(
+      "http://api.tvmaze.com/search/shows?q=" + searchQuery
+    );
     const json = await data.json();
-    console.log(json.suggestions);
-    setSuggestions(json.suggestions);
+    console.log(json);
+    setSuggestions(json);
+    // setSuggestions(json.suggestions);//*old from rapid api
   };
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
@@ -89,8 +91,8 @@ const Head = () => {
             placeholder="Search.."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            onFocus={() => setShowSuggestions(false)} //*make it true when api starts working
-            onBlur={() => setShowSuggestions(false)}
+            onFocus={() => setShowSuggestions(true)} //*make it true when api starts working
+            // onBlur={() => setShowSuggestions(false)}
             onKeyDown={
               (e) =>
                 e.key === "Enter" &&
@@ -112,16 +114,18 @@ const Head = () => {
         </div>
         {showSuggestions && (
           <div className="relative">
-            <ul className="absolute  z-10 bg-slate-900 rounded">
+            <ul className="absolute   z-10 bg-slate-900 rounded">
               {suggestions.map((suggestion, index) => (
-                <Link
+                <li
+                  onClick={() =>
+                    navigate("/results?search_query=" + suggestion.show.name) &&
+                    setSearchQuery("")
+                  }
                   key={index}
-                  to={"/results?search_query=" + suggestion.value}
+                  className="border-solid pl-3 p-3  m-1 text-l shadow-lg border-black lg:w-[30rem] w-48 bg-black rounded-lg mr-1 hover:bg-slate-800 text-white cursor-pointer"
                 >
-                  <li className="border-solid pl-3 p-3  m-1 text-l shadow-lg border-black w-[30rem] bg-black rounded-lg mr-1 hover:bg-slate-800 text-white">
-                    🔍 {suggestion.value}
-                  </li>
-                </Link>
+                  🔍 {suggestion.show.name}
+                </li>
               ))}
             </ul>
           </div>

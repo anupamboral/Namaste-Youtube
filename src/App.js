@@ -9,6 +9,7 @@ import ResultsPage from "./components/ResultsPage";
 
 import Channel from "./components/Channel";
 import Error from "./components/Error";
+import Demo from "./components/Demo";
 
 const appRouter = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/channel/:channelId",
         element: <Channel />,
+      },
+      {
+        path: "/demo",
+        element: <Demo />,
       },
     ],
     errorElement: <Error />,

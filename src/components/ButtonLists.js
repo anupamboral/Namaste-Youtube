@@ -6,7 +6,7 @@ const list = [
   "Live",
   "Gaming",
   "Tech",
-  "PremanandMaharajToday",
+  "PremanandMaharajTodayAkantik",
   "Cooking",
   "OmSwami",
   "Cricket",
