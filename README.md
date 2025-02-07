@@ -1,4 +1,4 @@
-# Live Link of [Namaste Youtube](https://namaste-youtube-anupam.netlify.app/)
+# Live link of this project:- [Namaste Youtube](https://namaste-youtube-anupam.netlify.app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
