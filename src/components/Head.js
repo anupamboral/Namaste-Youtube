@@ -50,7 +50,7 @@ const Head = () => {
 
     const data = await fetch(
       "http://api.tvmaze.com/search/shows?q=" + searchQuery
-    );
+    ); //* this api is free with no request limit old one had limited usage quota.
     const json = await data.json();
     console.log(json);
     setSuggestions(json);
