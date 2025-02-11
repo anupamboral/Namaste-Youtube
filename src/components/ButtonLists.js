@@ -55,7 +55,7 @@ const ButtonLists = () => {
       </button>
       <div
         ref={scrollRef}
-        className="lg:max-w-6xl bg-black overflow-x-hidden flex mx-2 flex-shrink  md:max-w-xl max-w-60"
+        className="lg:max-w-[75dvw] bg-black overflow-x-hidden flex mx-2 flex-shrink   max-w-[66dvw]"
       >
         {list.map((btnName, index) => {
           return (

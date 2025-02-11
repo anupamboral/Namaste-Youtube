@@ -9,7 +9,7 @@ const SideBar = () => {
   if (!isOpen) return null; //* isfalse= false return null to collapse the sidebar.
 
   return (
-    <div className="sideBar pr-4 w-56 border-r-[1px] ">
+    <div className="sideBar pr-4 w-56 border-r-[1px] pt-28  lg:pt-20">
       <button
         className="home p-2 border-b-[1px] font-bold mb-2  hover:shadow-white hover:shadow-sm hover:bg-slate-900 tracking-widest border-b-white  rounded-lg cursor-pointer w-full flex ml-2"
         onClick={() => navigate("/")}

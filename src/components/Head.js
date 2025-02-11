@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  AUTO_COMPLETE_SEARCH_API,
-  AUTO_COMPLETE_SEARCH_API_OPTIONS,
-  AUTO_COMPLETE_SEARCH_API_PARAMETERS,
-} from "../utils/config";
+
 import logo from "../imgs/logo-3.png";
 import userImg from "../imgs/user-img.png";
 import menuIcon from "../imgs/menu-icon2.png";
@@ -67,7 +63,7 @@ const Head = () => {
     dispatch(toggleMenu()); //* action we created inside appSlice.js to collapse and expand the sidebar.
   };
   return (
-    <div className="   p-2 shadow-lg grid grid-flow-col bg-black ">
+    <div className="   p-2 shadow-lg grid grid-flow-col bg-black fixed w-screen">
       <div className=" flex grid-cols-1">
         <img
           className="lg:h-12 h-10  mt-1 lg:w-20 w-10    hover:shadow-red-800 hover:shadow-lg cursor-pointer rounded-3xl "
@@ -85,12 +81,12 @@ const Head = () => {
         </Link>
       </div>
       <div className=" grid-cols-10 ">
-        <div>
+        <div className="flex">
           <input
             className={
               "border-solid pl-2 pt-2 pb-3 mt-3 text-xl shadow-lg hover:shadow-red-700 border-black w-4/5 h-10 rounded-l-full " +
               (mobileSearchBar &&
-                "absolute top-0   z-20 left-1 lg:left-auto lg:z-0 lg:relative ")
+                "absolute lg:relative top-0   z-20 left-1 lg:left-auto lg:z-0  ")
             }
             type="text"
             placeholder="Search.."
@@ -113,9 +109,9 @@ const Head = () => {
               setSearchQuery("")
             }
             className={
-              " h-11 mt-1 bg-slate-700  shadow-md hover:shadow-sky-200 border-black border-2 rounded-r-full lg:rounded-r-full w-14 text-white p-2 px-4  " +
+              " h-11 mt-[10px] bg-slate-700  shadow-md hover:shadow-sky-200 border-black border-2 rounded-r-full lg:rounded-r-full w-14 text-white p-1  pr-3 px-3  " +
               (mobileSearchBar &&
-                " z-40 lg:right-auto absolute  right-2 lg:z-0  lg:relative ")
+                " z-40 lg:right-auto absolute top-0 mt-[9px]  right-2 lg:z-0  lg:relative ")
             }
           >
             🔍

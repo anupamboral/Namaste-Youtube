@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LiveChatMessage from "./LiveChatMessage";
 import { useDispatch, useSelector } from "react-redux";
-import { addMessage, deleteMessage, emptyMessages } from "../utils/chatSlice";
+import { addMessage, emptyMessages } from "../utils/chatSlice";
 import { generateRandomName } from "../utils/helper";
 import randomSentence from "random-sentence";
 import { API_KEY, LIVE_CHAT_API } from "../utils/config";

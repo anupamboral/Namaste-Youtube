@@ -18,7 +18,7 @@ const VideoContainer = () => {
 
   if (videos.length === 0) return <ShimmerUI />;
   return (
-    <div className="flex flex-wrap justify-evenly">
+    <div className="flex flex-wrap justify-evenly ">
       {videos.map((video) => (
         <Link key={video.id} to={"/watch?v=" + video.id}>
           <VideoCard key={video.id} info={video} />

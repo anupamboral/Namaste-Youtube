@@ -24,7 +24,7 @@ const Channel = () => {
   }, []);
   if (channelData.length === 0) return null;
   return (
-    <div className="w-full">
+    <div className="w-full p-1 pt-24">
       <div className="w-full flex justify-center pb-10">
         <img
           alt="channel-background-image"

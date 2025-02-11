@@ -33,7 +33,7 @@ const WatchPage = () => {
   if (videoInfo.length === 0) return <ShimmerUI />;
 
   return (
-    <div className="lg:flex w-full lg:mr-2 ">
+    <div className="lg:flex w-full lg:mr-2 pt-28 lg:pt-24">
       <div className="mx-auto lg:mx-2">
         <iframe
           className="m-2 lg:ml-20 lg:w-[900px] lg:h-[450px] w-[340px] h-72  shadow-2xl shadow-slate-500 rounded-2xl overflow-hidden"
@@ -49,8 +49,8 @@ const WatchPage = () => {
         <p className=" lg:ml-20 ml-2 text-sm lg:w-[900px] w-80">
           {Math.round(videoInfo[0].statistics.viewCount / 1000)}K views
         </p>
-        <div className="flex lg:w-[900px] w-80">
-          <div className="flex flex-col ">
+        <div className="lg:flex lg:w-[900px] w-80">
+          <div className=" ">
             <Link to={"/channel/" + videoInfo[0].snippet.channelId}>
               <ChannelInfo channelId={videoInfo[0].snippet.channelId} />
             </Link>
@@ -73,7 +73,7 @@ const WatchPage = () => {
           <summary>Description</summary>
           {videoInfo[0].snippet.description}
         </details>
-        <h3 className="m-5 ml-20 ">
+        <h3 className="m-5 ml-20 text-2xl border-b-2 border-emerald-400">
           {videoInfo[0].statistics.commentCount} Comments
         </h3>
         <div className="lg:w-[900px] w-96">
