@@ -55,19 +55,24 @@ const WatchPage = () => {
               <ChannelInfo channelId={videoInfo[0].snippet.channelId} />
             </Link>
           </div>
-          <button className="flex bg-slate-700 ml-10 rounded-lg mt-4 p-2 h-12 w-40 hover:bg-slate-800 font-bold">
-            <img
-              className=" w-8 h-8 mr-1"
-              alt="like"
-              src="https://img.icons8.com/?size=256w&id=X0bivhUe8Vuv&format=png"
-            ></img>
-            {Math.floor(videoInfo[0].statistics.likeCount / 1000)}k |
-            <img
-              className=" w-8 h-8 ml-1"
-              alt="unlike"
-              src="https://img.icons8.com/?size=80&id=TUqJsJ4ey9V0&format=png"
-            ></img>
-          </button>
+          <div className="flex">
+            <button className="flex bg-slate-700 ml-10 rounded-l-full mt-4 p-2 h-12 w-20 hover:bg-slate-800 font-bold text-xl">
+              <img
+                className=" w-7 h-7 mr-1"
+                alt="like"
+                src="https://img.icons8.com/?size=256w&id=X0bivhUe8Vuv&format=png"
+              ></img>
+              {Math.floor(videoInfo[0].statistics.likeCount / 1000)}k{" "}
+            </button>
+
+            <button className="flex bg-slate-700  rounded-r-full mt-4 p-2 h-12 w-20 hover:bg-slate-800 font-bold">
+              <img
+                className=" w-7 h-7 ml-1"
+                alt="unlike"
+                src="https://img.icons8.com/?size=80&id=TUqJsJ4ey9V0&format=png"
+              ></img>
+            </button>
+          </div>
         </div>
         <details className="m-5 lg:ml-20 w-80  lg:w-[900px] p-4  shadow-2xl bg-slate-900">
           <summary>Description</summary>

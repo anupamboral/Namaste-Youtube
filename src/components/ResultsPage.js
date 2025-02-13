@@ -32,8 +32,14 @@ const ResultsPage = () => {
   console.log(filteredChannels);
   return (
     <div className="px-6 pt-24">
+      <p className="text-lg">
+        Search results for : <span className="text-green-400 ">{query}</span>
+      </p>
       {filteredChannels.map((channel) => (
-        <Link to={"/channel/" + channel.id.channelId}>
+        <Link
+          key={channel.id.channelId}
+          to={"/channel/" + channel.id.channelId}
+        >
           <ChannelSearchResult info={channel} />
         </Link>
       ))}

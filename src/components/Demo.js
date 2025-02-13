@@ -12,7 +12,7 @@ const Demo = () => {
   return (
     <div
       className={
-        "w-96 h-96 border-2 m-4  border-white " +
+        "w-96 h-96 border-2 m-4  border-white mt-24 " +
         (isDarkTheme && "bg-slate-100 text-black")
       }
     >

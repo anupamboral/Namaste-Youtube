@@ -2,7 +2,7 @@ import React from "react";
 
 const ShimmerUI = () => {
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap pt-24">
       <div className=" w-72 p-4 h-80 m-4  shadow-slate-400 bg-slate-950 shadow-sm rounded-lg">
         <div className=" w-64  bg-slate-800 h-40 rounded-lg" />
         <ul>
