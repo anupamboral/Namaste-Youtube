@@ -10,6 +10,7 @@ import ResultsPage from "./components/ResultsPage";
 import Channel from "./components/Channel";
 import Error from "./components/Error";
 import Demo from "./components/Demo";
+import Demo2 from "./components/Demo2";
 
 const appRouter = createBrowserRouter([
   {
@@ -35,7 +36,12 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/demo",
-        element: <Demo />,
+        element: (
+          <>
+            <Demo />
+            <Demo2 />
+          </>
+        ),
       },
     ],
     errorElement: <Error />,
