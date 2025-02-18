@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 
 const Demo2 = () => {
+  console.log("rendering");
   let x = 10;
   const [y, setY] = useState(0);
   const ref = useRef(0);
